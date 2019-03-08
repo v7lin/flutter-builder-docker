@@ -1,0 +1,17 @@
+kind: pipeline
+name: default
+
+steps:
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: v7lin/flutter
+    context: flutter
+    dockerfile: flutter/Dockerfile
+    username:
+      from_secret: REGISTRY_USER
+    password:
+      from_secret: REGISTRY_PASSWORD
+    tags:
+    - 1.0.0-stable
+    - latest

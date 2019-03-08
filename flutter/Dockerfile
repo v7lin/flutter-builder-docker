@@ -1,8 +1,9 @@
 FROM fedora:28
 
-ENV ANDROID_COMPILE_SDK=28
-ENV ANDROID_BUILD_TOOLS=28.0.1
+ENV ANDROID_COMPILE_SDK=27
+ENV ANDROID_BUILD_TOOLS=27.0.3
 ENV ANDROID_SDK_TOOLS=4333796
+ENV ANDROID_EMULATOR_VERSION=27
 ENV FLUTTER_CHANNEL=stable
 ENV FLUTTER_VERSION=1.0.0-${FLUTTER_CHANNEL}
 
@@ -32,13 +33,8 @@ RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com
 ENV PATH=$PATH:/opt/flutter/bin
 
 RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-18;google_apis;x86" \
-    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-27;google_apis_playstore;x86"
+    && echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "system-images;android-${ANDROID_EMULATOR_VERSION};google_apis_playstore;x86"
 
 RUN dnf update -y \
     && dnf install -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
     && dnf clean all
-
-#
-# /opt/android-sdk-linux/tools/bin/avdmanager create avd -k 'system-images;android-18;google_apis;x86' --abi google_apis/x86 -n 'test' -d 'Nexus 4'
-# emulator -avd test -no-skin -no-audio -no-window
