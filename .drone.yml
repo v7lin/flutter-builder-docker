@@ -13,8 +13,9 @@ steps:
     password:
       from_secret: REGISTRY_PASSWORD
     tags:
-    - ${DRONE_TAG}
-    - latest
-  when:
-    event:
-    - tag
+    - test
+#    - ${DRONE_TAG}
+#    - latest
+#  when:
+#    event:
+#    - tag
