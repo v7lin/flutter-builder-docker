@@ -5,7 +5,7 @@ ENV ANDROID_BUILD_TOOLS=28.0.3
 ENV ANDROID_SDK_TOOLS=4333796
 ENV ANDROID_EMULATOR_VERSION=28
 ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.5.4-hotfix.2-${FLUTTER_CHANNEL}
+ENV FLUTTER_VERSION=1.2.1-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
     && dnf install -y wget tar unzip ruby ruby-devel make autoconf automake redhat-rpm-config lcov\
