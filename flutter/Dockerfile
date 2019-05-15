@@ -38,3 +38,5 @@ RUN echo "y" | /opt/android-sdk-linux/tools/bin/sdkmanager "emulator" \
 RUN dnf update -y \
     && dnf install -y pulseaudio-libs mesa-libGL  mesa-libGLES mesa-libEGL \
     && dnf clean all
+
+ENV LANG en_US.UTF-8
