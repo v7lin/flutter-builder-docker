@@ -19,5 +19,3 @@ MAINTAINER v7lin <v7lin@qq.com>
 ENV PATH=$PATH:/opt/flutter/bin
 
 COPY --from=download /opt/flutter /opt/flutter
-
-RUN flutter doctor

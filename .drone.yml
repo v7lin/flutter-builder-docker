@@ -6,16 +6,14 @@ steps:
   image: plugins/docker
   settings:
     repo: v7lin/flutter
-    context: flutter
-    dockerfile: flutter/Dockerfile
+    target: prod
     username:
       from_secret: REGISTRY_USER
     password:
       from_secret: REGISTRY_PASSWORD
     tags:
-    - test
-#    - ${DRONE_TAG}
-#    - latest
-#  when:
-#    event:
-#    - tag
+    - ${DRONE_TAG}
+    - latest
+  when:
+    event:
+    - tag
