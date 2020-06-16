@@ -3,7 +3,7 @@
 FROM alpine:3.9 as download
 
 ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.12.13+hotfix.5
+ENV FLUTTER_VERSION=1.17.3
 
 RUN wget --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_v${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.tar.xz \
     && tar xf flutter.tar.xz -C /opt
